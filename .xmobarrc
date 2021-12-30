@@ -1,0 +1,11 @@
+Config {
+  font = "xft:Fira Mono:pixelsize=12:antialias=true:hinting=true",
+  alpha = 85,
+  commands = [
+    Run Weather "KSTL" ["-t","<tempF>F"] 36000,
+    Run Cpu ["-t","CPU: <total>%","-H","50","--high","red"] 10,
+    Run Memory ["-t","Mem: <usedratio>%"] 10,
+    Run Date "%b %-d %-l:%M %p" "date" 10
+  ],
+  template = "  %cpu%  %memory% }{ %KSTL% <fc=#ffffff>%date%</fc>  "
+}

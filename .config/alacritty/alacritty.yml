@@ -1,0 +1,19 @@
+window:
+  # Set padding on the terminal window
+  padding:
+    x: 6
+    y: 6
+
+font:
+  offset:
+    # Set line height
+    y: 10
+
+  # Glyphs should be offset by half the line height to make sure they're in the
+  # middle of the line
+  glyph_offset:
+    y: 5
+
+# Terminal background is partially transparent
+background_opacity: 0.8
+
