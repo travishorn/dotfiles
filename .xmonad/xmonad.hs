@@ -130,14 +130,14 @@ defaults = def {
 
       -- key bindings
         keys               = myKeys,
-        mouseBindings      = myMouseBindings,
+        --mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = myLayout,
-        manageHook         = myManageHook,
-        handleEventHook    = myEventHook,
-        logHook            = myLogHook,
-        startupHook        = myStartupHook
+        layoutHook         = myLayout
+        --manageHook         = myManageHook,
+        --handleEventHook    = myEventHook,
+        --logHook            = myLogHook,
+        --startupHook        = myStartupHook
     }
 
 -- Help for the key bindings

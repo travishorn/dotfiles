@@ -65,6 +65,28 @@ Configure git to ignore untracked files in your home directory
 config config --local status.showUntrackedFiles no
 ```
 
+You may need to recompile xmonad.
+
+```bash
+xmonad --recompile
+```
+
+## Usage
+
+Run the window manager
+
+```bash
+startx
+```
+
+You can run it automatically on login, too.
+
+```bash
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi
+```
+
 ## Modifying configuration files
 
 When you change a configuration file, make sure to commit changes to the
