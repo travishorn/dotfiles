@@ -46,6 +46,14 @@ Clone into a bare repository
 git clone --bare https://github.com/travishorn/dotfiles $HOME/.config/dotfiles
 ```
 
+Note: This repository is currently private. You must authenticate with GitHub on
+your local system. The easiest way is through GitHub's CLI.
+
+```bash
+sudo pacman -S github-cli
+gh auth login
+```
+
 Check out the dotfiles
 
 ```bash
@@ -65,7 +73,7 @@ Configure git to ignore untracked files in your home directory
 config config --local status.showUntrackedFiles no
 ```
 
-You may need to recompile xmonad.
+You'll probably need to recompile xmonad.
 
 ```bash
 xmonad --recompile
@@ -85,6 +93,15 @@ You can run it automatically on login, too.
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
+```
+
+## Updating
+
+When the configuration files change, you can update your system by pulling from
+the remote repository.
+
+```bash
+config pull
 ```
 
 ## Modifying configuration files
