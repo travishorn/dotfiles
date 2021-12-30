@@ -1,5 +1,7 @@
 # Dotfiles
 
+My configuration files for Arch Linux systems.
+
 ## Prerequisites
 
 - alacritty
@@ -57,6 +59,17 @@ Configure git to ignore untracked files in your home directory
 
 ```bash
 config config --local status.showUntrackedFiles no
+```
+
+## Modifying configuration files
+
+When you change a configuration file, make sure to commit changes to the
+repository. Use the `config` alias.
+
+```bash
+config add .vimrc
+config commit -m "Description of changes"
+config push
 ```
 
 ## License
