@@ -52,8 +52,12 @@ Check out the dotfiles
 config checkout
 ```
 
-If git complains that files would be overwritten, simply back them up and
-remove them from your system. Re-run the checkout when you've removed them.
+git will tell you what files are about to be overwritten. Back up those files if
+you wish, then force the checkout.
+
+```bash
+config checkout -f
+```
 
 Configure git to ignore untracked files in your home directory
 
