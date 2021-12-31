@@ -20,7 +20,7 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 -- Width of the window border in pixels.
-myBorderWidth   = 2
+myBorderWidth   = 1
 
 -- Which modkey to use
 -- mod1Mask = left alt
@@ -32,7 +32,7 @@ myModMask       = mod1Mask
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
-myNormalBorderColor  = "#dddddd"
+myNormalBorderColor  = "#444444"
 myFocusedBorderColor = "#007acc"
 
 -- Key bindings
