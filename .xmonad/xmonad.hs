@@ -51,13 +51,19 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_j     ), windows W.focusDown)
 
     -- Move focus to the previous window. Mod + k
-    , ((modm,               xK_k     ), windows W.focusUp  )
+    , ((modm,               xK_k     ), windows W.focusUp)
 
     -- Move focus to the master window. Mod + m
-    , ((modm,               xK_m     ), windows W.focusMaster  )
+    , ((modm,               xK_m     ), windows W.focusMaster)
 
     -- Make current window master. Mod + Enter
     , ((modm,               xK_Return), windows W.swapMaster)
+
+    -- Swap current window with next window. Mod + Shift + j
+    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown)
+
+    -- Swap current window with previous window. Mod + Shift + k
+    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp)
 
     -- Shrink the master area. Mod + h
     , ((modm,               xK_h     ), sendMessage Shrink)
@@ -153,6 +159,10 @@ help = unlines ["Key Bindings:",
     "Alt + j              Move focus to the next window",
     "Alt + k              Move focus to the previous window",
     "Alt + m              Move focus to the master window",
+    "",
+    "-- Moving windows",
+    "Alt + Shift + j      Swap window with next window",
+    "Alt + Shift + k      Swap window with previous window",
     "Alt + Enter          Make the focused window master",
     "",
     "-- Resizing the master/stack",
@@ -161,7 +171,7 @@ help = unlines ["Key Bindings:",
     "Alt + ,              More windows in master area",
     "Alt + .              Less windows in master area",
     "",
-    "-- Workspaces & screens",
+    "-- Workspaces",
     "Alt + Shift + [1..9] Move window to workspace",
     "Alt + [1..9]         Switch to workSpace",
     "",
