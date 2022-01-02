@@ -115,16 +115,17 @@ myLayout = mySpacing $ avoidStruts $ tiled
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
 
----- Start picom, set wallpaper with feh, start xmobar, and start xmonad
-main = do
-  xmproc <- spawnPipe "picom"
-  xmproc <- spawnPipe "~/.fehbg"
-  xmproc <- spawnPipe "xmobar"
-  xmonad $ docks defaults
+-- Processes to start when xmonad starts
+-- Start picom, set wallpaper with feh, start xmobar
+myStartupHook = do
+  spawnOnce "picom"
+  spawnOnce "~/.fehbg"
+  spawnOnce "xmobar"
+
+main = xmonad $ docks defaults
 
 -- Final configuration. Use defaults for anythning not set in this file.
 defaults = def {
-      -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         clickJustFocuses   = myClickJustFocuses,
@@ -133,17 +134,13 @@ defaults = def {
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
-
-      -- key bindings
         keys               = myKeys,
-        --mouseBindings      = myMouseBindings,
-
-      -- hooks, layouts
         layoutHook         = myLayout
+        startupHook        = myStartupHook
+        --mouseBindings      = myMouseBindings,
         --manageHook         = myManageHook,
         --handleEventHook    = myEventHook,
         --logHook            = myLogHook,
-        --startupHook        = myStartupHook
     }
 
 -- Help for the key bindings
