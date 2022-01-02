@@ -14,6 +14,9 @@ myTerminal = "alacritty"
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse = False
 
+-- Click doesn't just focus a window, but actually passes the click through
+myClickJustFocuses = False
+
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor  = "#444444"
 myFocusedBorderColor = "#007acc"
@@ -112,6 +115,7 @@ main = do
 defaults = def {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
+        clickJustFocuses   = myClickJustFocuses,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
         keys               = myKeys,
