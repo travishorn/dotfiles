@@ -9,27 +9,10 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 -- The preferred terminal program
-myTerminal      = "alacritty"
+myTerminal = "alacritty"
 
 -- Whether focus follows the mouse pointer.
-myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
-
--- Whether clicking on a window to focus also passes the click to the window
-myClickJustFocuses :: Bool
-myClickJustFocuses = False
-
--- Width of the window border in pixels.
-myBorderWidth   = 1
-
--- Which modkey to use
--- mod1Mask = left alt
--- mod3Mask = right alt
--- mod4Mask = windows key
-myModMask       = mod1Mask
-
--- Number of workspaces
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myFocusFollowsMouse = False
 
 -- Border colors for unfocused and focused windows, respectively.
 myNormalBorderColor  = "#444444"
@@ -94,7 +77,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
 -- Layouts
 
--- Gaps
+-- Set gaps
 mySpacing = spacingRaw False            -- False = gaps even on single window
                        (Border 5 5 5 5) -- Screen gaps. Top bot right left
                        True             -- Enable screen gap
@@ -115,32 +98,21 @@ myLayout = mySpacing $ avoidStruts $ tiled
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
 
--- Processes to start when xmonad starts
--- Start picom, set wallpaper with feh, start xmobar
-myStartupHook = do
-  spawnOnce "picom"
-  spawnOnce "~/.fehbg"
-  spawnOnce "xmobar"
+-- Main function. Start picom, set wallpaper, start xmobar, then start xmonad
+main = do
+  xmproc <- spawnPipe "picom"
+  xmproc <- spawnPipe "~/.fehbg"
+  xmproc <- spawnPipe "xmobar"
+  xmonad $ docks defaults
 
-main = xmonad $ docks defaults
-
--- Final configuration. Use defaults for anythning not set in this file.
+-- Final configuration. Use defaults for anything not set in this file.
 defaults = def {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
-        clickJustFocuses   = myClickJustFocuses,
-        borderWidth        = myBorderWidth,
-        modMask            = myModMask,
-        workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
         keys               = myKeys,
         layoutHook         = myLayout
-        startupHook        = myStartupHook
-        --mouseBindings      = myMouseBindings,
-        --manageHook         = myManageHook,
-        --handleEventHook    = myEventHook,
-        --logHook            = myLogHook,
     }
 
 -- Help for the key bindings
