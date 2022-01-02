@@ -1,7 +1,7 @@
 import XMonad
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Spacing
-import XMonad.Util.Run
+import XMonad.Util.SpawnOnce
 import Data.Monoid
 import System.Exit
 
@@ -98,11 +98,14 @@ myLayout = mySpacing $ avoidStruts $ tiled
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
 
--- Main function. Start picom, set wallpaper, start xmobar, then start xmonad
+-- Startup hook. Start picom, set wallpaper, and start xmobar
+myStartupHook = do
+  spawnOnce "picom"
+  spawnOnce "~/.fehbg"
+  spawnOnce "xmobar"
+
+-- Main function. Start xmonad with all the options defined in this file.
 main = do
-  xmproc <- spawnPipe "picom"
-  xmproc <- spawnPipe "~/.fehbg"
-  xmproc <- spawnPipe "xmobar"
   xmonad $ docks defaults
 
 -- Final configuration. Use defaults for anything not set in this file.
@@ -112,38 +115,7 @@ defaults = def {
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
         keys               = myKeys,
-        layoutHook         = myLayout
+        layoutHook         = myLayout,
+        startupHook        = myStartupHook
     }
 
--- Help for the key bindings
-help :: String
-help = unlines ["Key Bindings:",
-    "",
-    "-- Launching & killing programs",
-    "Alt + Shift + Enter  Launch terminal",
-    "Alt + p              Launch dmenu",
-    "Alt + Shift + c      Close/kill the focused window",
-    "",
-    "-- Changing focus",
-    "Alt + j              Move focus to the next window",
-    "Alt + k              Move focus to the previous window",
-    "Alt + m              Move focus to the master window",
-    "",
-    "-- Moving windows",
-    "Alt + Shift + j      Swap window with next window",
-    "Alt + Shift + k      Swap window with previous window",
-    "Alt + Enter          Make the focused window master",
-    "",
-    "-- Resizing the master/stack",
-    "Alt + h              Shrink the master area",
-    "Alt + l              Expand the master area",
-    "Alt + ,              More windows in master area",
-    "Alt + .              Less windows in master area",
-    "",
-    "-- Workspaces",
-    "Alt + Shift + [1..9] Move window to workspace",
-    "Alt + [1..9]         Switch to workSpace",
-    "",
-    "-- Quit and restart",
-    "Alt + q              Restart xmonad",
-    "Alt + Shift + q      Quit xmonad"]
