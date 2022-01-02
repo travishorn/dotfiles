@@ -2,12 +2,13 @@ Config {
   font = "xft:Fira Mono:pixelsize=12:antialias=true:hinting=true",
   alpha = 85,
   commands = [
-    Run Cpu ["-t","CPU: <total>%","-H","50","--high","red"] 10,
-    Run Memory ["-t","Mem: <usedratio>%"] 10,
-    Run Alsa "default" "Master" ["-t","Vol: <volume>%"],
+    Run Cpu ["-t","CPU <total>%","-H","50","--high","#d35d5d"] 10,
+    Run Memory ["-t","Mem <usedratio>%"] 10,
+    Run Alsa "default" "Master" ["-t","Vol <volume>% <status>","--",
+                                 "-O","","-o","[muted]","-c","#d35d5d"],
     Run Weather "KSTL" ["-t","<tempF>F"] 36000,
     Run Date "%b %-d %-l:%M %p" "date" 10
   ],
-  template = "  %cpu%  %memory%  %alsa:default:Master% }\
+  template = "  %cpu% | %memory% | %alsa:default:Master% }\
              \{ %KSTL% <fc=#ffffff>%date%</fc>  "
 }
