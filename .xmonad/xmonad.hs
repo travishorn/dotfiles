@@ -21,7 +21,7 @@ myClickJustFocuses = False
 myNormalBorderColor  = "#444444"
 myFocusedBorderColor = "#007acc"
 
--- Key bindings
+-- Key bindings. Mod = Alt
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Launch a terminal. Mod + Shift + Enter
@@ -29,6 +29,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Launch dmenu. Mod + p
     , ((modm,               xK_p     ), spawn "dmenu_run")
+
+    -- Mute, volume down, & volume up. F6, F7, & F8
+    , ((0,                  xK_F6    ), spawn "amixer set Master toggle")
+    , ((0,                  xK_F7    ), spawn "amixer set Master playback 6553.6-")
+    , ((0,                  xK_F8    ), spawn "amixer set Master playback 6553.6+")
 
     -- Close focused window. Mod + Shift + c
     , ((modm .|. shiftMask, xK_c     ), kill)
