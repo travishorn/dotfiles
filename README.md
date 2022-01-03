@@ -17,7 +17,7 @@ My configuration files for Arch Linux systems.
 - xorg-xinit
 
 ```bash
-sudo pacman -S alacritty feh git picom ttf-fira-mono vim xmobar xmonad xmonad-contrib xorg-server xorg-xinit
+sudo pacman -S alacritty alsa-utils dmenu feh git picom ttf-fira-mono vim xmobar xmonad xmonad-contrib xorg-server xorg-xinit
 ```
 
 ## Installation
