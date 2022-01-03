@@ -5,6 +5,11 @@ window:
     y: 6
 
 font:
+  normal:
+    # Use this font for all text. Bold, italic, etc fall back to this when not
+    # set
+    family: Fira Mono
+
   offset:
     # Set line height
     y: 10
