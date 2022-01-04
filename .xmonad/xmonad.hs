@@ -32,8 +32,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Mute, volume down, & volume up. F6, F7, & F8
     , ((0,                  xK_F6    ), spawn "amixer set Master toggle")
-    , ((0,                  xK_F7    ), spawn "amixer set Master playback 6553.6-")
-    , ((0,                  xK_F8    ), spawn "amixer set Master playback 6553.6+")
+    , ((0,                  xK_F7    ), spawn "amixer set Master playback 10%-")
+    , ((0,                  xK_F8    ), spawn "amixer set Master playback 10%+")
 
     -- Close focused window. Mod + Shift + c
     , ((modm .|. shiftMask, xK_c     ), kill)
