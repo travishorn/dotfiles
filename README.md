@@ -5,6 +5,8 @@ My configuration files for Arch Linux systems.
 ## Prerequisites
 
 - alacritty
+- alsa-utils
+- dmenu
 - feh
 - git
 - picom
