@@ -4,19 +4,19 @@ My configuration files for Arch Linux systems.
 
 ## Prerequisites
 
-- alacritty
-- alsa-utils
-- dmenu
-- feh
-- git
-- picom
-- ttf-fira-mono
-- vim
-- xmobar
-- xmonad
-- xmonad-contrib
-- xorg-server
-- xorg-xinit
+- [alacritty](https://github.com/alacritty/alacritty)
+- [alsa-utils](https://github.com/alsa-project/alsa-utils)
+- [dmenu](https://tools.suckless.org/dmenu/)
+- [feh](https://feh.finalrewind.org/)
+- [git](https://git-scm.com/)
+- [picom](https://github.com/yshui/picom)
+- [ttf-fira-mono](https://github.com/mozilla/Fira)
+- [vim](https://www.vim.org/)
+- [xmobar](https://xmobar.org/)
+- [xmonad](https://xmonad.org/)
+- [xmonad-contrib](https://hackage.haskell.org/package/xmonad-contrib)
+- [xorg-server](https://www.x.org/wiki/)
+- [xorg-xinit](https://www.x.org/releases/X11R7.6/doc/man/man1/xinit.1.xhtml)
 
 ```bash
 sudo pacman -S alacritty alsa-utils dmenu feh git picom ttf-fira-mono vim xmobar xmonad xmonad-contrib xorg-server xorg-xinit
