@@ -48,14 +48,6 @@ Clone into a bare repository
 git clone --bare https://github.com/travishorn/dotfiles $HOME/.config/dotfiles
 ```
 
-Note: This repository is currently private. You must authenticate with GitHub on
-your local system. The easiest way is through GitHub's CLI.
-
-```bash
-sudo pacman -S github-cli
-gh auth login
-```
-
 Check out the dotfiles
 
 ```bash
