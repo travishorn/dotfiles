@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/travis/Pictures/Wallpapers/blue-purple-stars.jpg' 
+feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/blue-purple-stars.jpg
