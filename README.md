@@ -9,6 +9,7 @@ My configuration files for Arch Linux systems.
 - [dmenu](https://tools.suckless.org/dmenu/)
 - [feh](https://feh.finalrewind.org/)
 - [git](https://git-scm.com/)
+- [numlockx](https://archlinux.org/packages/community/x86_64/numlockx/)
 - [picom](https://github.com/yshui/picom)
 - [ttf-fira-mono](https://github.com/mozilla/Fira)
 - [vim](https://www.vim.org/)
@@ -19,7 +20,7 @@ My configuration files for Arch Linux systems.
 - [xorg-xinit](https://www.x.org/releases/X11R7.6/doc/man/man1/xinit.1.xhtml)
 
 ```bash
-sudo pacman -S alacritty alsa-utils dmenu feh git picom ttf-fira-mono vim xmobar xmonad xmonad-contrib xorg-server xorg-xinit
+sudo pacman -S alacritty alsa-utils dmenu feh git numlockx picom ttf-fira-mono vim xmobar xmonad xmonad-contrib xorg-server xorg-xinit
 ```
 
 ## Installation

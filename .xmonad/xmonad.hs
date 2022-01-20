@@ -111,6 +111,7 @@ myStartupHook = do
   spawnOnce "picom"
   spawnOnce "~/.fehbg"
   spawnOnce "xmobar"
+  spawnOnce "numlockx"
 
 -- Main function. Start xmonad with all the options defined in this file.
 main = do
