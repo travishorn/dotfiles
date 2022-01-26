@@ -1,4 +1,7 @@
 window:
+  # Terminal background is partially transparent
+  opacity: 0.8
+
   # Set padding on the terminal window
   padding:
     x: 6
@@ -19,6 +22,4 @@ font:
   glyph_offset:
     y: 5
 
-# Terminal background is partially transparent
-background_opacity: 0.8
 
